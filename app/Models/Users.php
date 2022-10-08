@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Orders extends Model
+class Users extends Model
 {
     use HasFactory;
 
-    protected $fillabel = ['status', 'id_user'];
+    protected $fillabel = ['name', 'email', 'mobile'];
 }

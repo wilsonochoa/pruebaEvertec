@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,10 @@ Route::get('/', function () {
 
 Route::get('orders', [OrdersController::class, 'index']);
 
-Route::get('create', [OrdersController::class, 'create'])->name('create');;
+Route::get('users', [UsersController::class, 'index']);
+
+Route::get('preview', [OrdersController::class, 'previewOrder'])->name('preview');
+
+Route::post('previewProcess', [OrdersController::class, 'previewProcess'])->name('order.previewProcess');
+
+Route::get('viewStateOrden', [OrdersController::class, 'viewStateOrden'])->name('viewStateOrden');

@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('customer_name', 80);
-            $table->string('customer_email', 120);
-            $table->string('customer_mobile', 40);
-            $table->string('status', 20);            
+            $table->string('status', 20); 
+            $table->foreignId('user_id')->constrained('users');       
             $table->timestamps();
         });
     }
