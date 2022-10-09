@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('status', 20); 
-            $table->foreignId('user_id')->constrained('users');       
+            $table->string('status', 20);
+            $table->string('id_request', 250)->nullable();
+            $table->string('process_url', 250)->nullable();
+            $table->foreignId('id_user')->constrained('users');
             $table->timestamps();
         });
     }

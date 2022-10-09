@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OrdersController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Orders\OrdersController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('orders', [OrdersController::class, 'index']);
+Route::get('index', [OrdersController::class, 'index'])->name('order.newOrder');
 
-Route::get('users', [UsersController::class, 'index']);
+Route::get('lstorder', [OrdersController::class, 'lstOrder'])->name('order.lstorder');
 
-Route::get('preview', [OrdersController::class, 'previewOrder'])->name('preview');
+Route::get('create/{id?}', [OrdersController::class, 'createOrder'])->name('order.create');
 
-Route::post('previewProcess', [OrdersController::class, 'previewProcess'])->name('order.previewProcess');
+Route::post('createprocess', [OrdersController::class, 'createProcess'])->name('order.createProcess');
 
-Route::get('viewStateOrden', [OrdersController::class, 'viewStateOrden'])->name('viewStateOrden');
+Route::get('preview/{order}', [OrdersController::class, 'previewOrder'])->name('order.preview');
+
+Route::post('previewprocess', [OrdersController::class, 'previewProcess'])->name('order.previewProcess');
+
+Route::get('viewstateorden/{id}', [OrdersController::class, 'viewStateOrden'])->name('viewStateOrden');
+
+Route::get('retrypayorder/{id}', [OrdersController::class, 'retrypayorder'])->name('retryPayOrder');
+

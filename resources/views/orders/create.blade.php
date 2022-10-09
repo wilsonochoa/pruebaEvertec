@@ -12,7 +12,6 @@
             </ul>
         </div>
     @endif
-    <h2>Resumen de la compra</h2>
     <div class=''>
         <div class="col-12 text-center">
             <img class="img-fluid img-portfolio img-hover mb-3" src="{{asset('img/control.webp')}}"
@@ -30,29 +29,31 @@
         <div style="display: flex;
   align-items: center;
   justify-content: center;">
-            <form method="POST" action="{{ route('order.previewProcess') }}">
+            <form method="POST" action="{{ route('order.createProcess') }}">
                 @csrf
 
                 <legend>Datos necesarios</legend>
                 <div class="form-group">
-                    <label for="name" class="form-label">Nombre</label>
+                    <label for="name" class="form-label">Nombre *</label>
                     <input type="text" id="name" name="name" class="form-control" placeholder="Ingrese su nombre"
-                           maxlength="80" value="{{$order->users->name}}" required readonly>
+                           maxlength="80" required @if($order) value="{{$order->users->name}}" @endif>
                 </div>
                 <div class="form-group">
                     <label for="email" class="form-label">Email *</label>
                     <input type="email" id="email" name="email" class="form-control"
-                           placeholder="Ingrese su correo electr&oacute;nico" maxlength="120" value="{{$order->users->email}}" required readonly>
+                           placeholder="Ingrese su correo electr&oacute;nico" maxlength="120" required
+                           @if($order) value="{{$order->users->email}}" @endif>
                 </div>
                 <div class="form-group">
                     <label for="mobile" class="form-label">Celular *</label>
                     <input type="number" id="mobile" name="mobile" class="form-control"
-                           placeholder="Ingrese su numero de celular" maxlength="40" value="{{$order->users->mobile}}" required readonly>
+                           placeholder="Ingrese su numero de celular" maxlength="40" required
+                           @if($order)value="{{$order->users->mobile}}"@endif>
                 </div>
                 <div>
-                    <input type="hidden" name="id_orden" value="{{$order->id}}">
-                    <a href="{{route('order.create', ['id' => $order->id])}}" type="submit" class="btn btn-primary m-5">Volver</a>
-                    <button type="submit" class="btn btn-primary m-5">Comprar</button>
+                    <input type="hidden" name="id_order" @if($order)value="{{$order->id}}"@endif>
+                    <a href="{{route('order.newOrder')}}" type="submit" class="btn btn-primary m-5">Volver</a>
+                    <button type="submit" class="btn btn-primary m-5">Crear orden</button>
                 </div>
             </form>
         </div>
