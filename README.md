@@ -22,8 +22,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 
-##Manual de instalación
-
+<h2>Manual de instalación</h2>
 
 <strong>Requerimientos</strong>:
 - PHP 8.+
