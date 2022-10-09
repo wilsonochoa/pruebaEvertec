@@ -31,7 +31,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 <strong>Pasos:</strong>
 - git clone https://github.com/wilsonochoa/pruebaEvertec.git pruebaEvertec
-- cd test_evertec
+- cd pruebaEvertec
 - composer install
 - cp .env.example .env
 - configurar los datos de conexión a la base de datos en el archivo .env
