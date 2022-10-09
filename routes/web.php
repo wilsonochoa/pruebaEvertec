@@ -16,11 +16,7 @@ use App\Http\Controllers\Orders\OrdersController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('index', [OrdersController::class, 'index'])->name('order.newOrder');
+Route::get('/', [OrdersController::class, 'index'])->name('order.newOrder');
 
 Route::get('lstorder', [OrdersController::class, 'lstOrder'])->name('order.lstorder');
 

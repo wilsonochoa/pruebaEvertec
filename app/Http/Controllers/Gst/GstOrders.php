@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Gst;
 
 use App\Models\Orders;
 use App\Models\Users;
-use DateTime;
 
 class GstOrders
 {
@@ -51,6 +50,7 @@ class GstOrders
      */
     public static function updateUser($data, $id_user)
     {
+
         $users = Users::find($id_user);
         $users->name = trim($data['name']);
         $users->email = trim($data['email']);

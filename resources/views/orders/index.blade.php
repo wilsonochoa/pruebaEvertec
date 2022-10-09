@@ -3,6 +3,7 @@
 
 @section('content')
 <div >
+
     <div class="col-12 text-center">
         <a href="{{route('order.create')}}"><img class="img-fluid img-portfolio img-hover mb-3" src="{{asset('img/control.webp')}}" alt="DualShock Controller for PlayStation 4"></a>
         <div>

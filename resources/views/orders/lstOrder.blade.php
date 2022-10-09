@@ -2,6 +2,16 @@
 @section('title', 'Listar Ordenes')
 
 @section('content')
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <p>Se han produccido los siguientes errores:</p>
+            <ul>
+                @foreach ($errors->all() as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 <div class="container mt-2">
     <div class="row">
         <div class="col-lg-12 margin-tb">

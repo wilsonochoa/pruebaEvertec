@@ -111,6 +111,9 @@ class OrdersController extends Controller
     public function previewOrder($id_order)
     {
         $order = Orders::find($id_order);
+        if($order == null || empty($order) ){
+            return redirect()->route('order.create')->withErrors(['errors' => 'El id especificado no existe']);
+        }
         return view('orders.preview', compact('order'));
     }
 
@@ -129,7 +132,9 @@ class OrdersController extends Controller
         ], $messages);
 
         $order = Orders::find($data['id_orden']);
-
+        if($order == null || empty($order) ){
+            return redirect()->route('order.create')->withErrors(['errors' => 'El id especificado no existe']);
+        }
         $responseWs = $this->utils->createSessionPlacetoPay($order->id);
 
         if ($responseWs['status']['status'] === 'OK' && $responseWs['status']['reason'] === 'PC') {
@@ -154,6 +159,9 @@ class OrdersController extends Controller
             'PENDING' => 'Pendiente'
         ];
         $order = Orders::find($id);
+        if($order == null || empty($order) ){
+            return redirect()->route('order.lstorder')->withErrors(['errors' => 'El id especificado no existe']);
+        }
         if($order->id_request !== null){
             $response = $this->utils->getRequestInformation($order->id_request);
             $this->gstOrders->updateOrder($order->id, $this->states[$response['status']['status']]);
@@ -171,6 +179,9 @@ class OrdersController extends Controller
      */
     public function retryPayOrder($id){
         $order = Orders::find($id);
+        if($order == null || empty($order) ){
+            return redirect()->route('order.lstorder')->withErrors(['errors' => 'El id especificado no existe']);
+        }
         $responseWs = $this->utils->createSessionPlacetoPay($order->id);
 
         if ($responseWs['status']['status'] === 'OK' && $responseWs['status']['reason'] === 'PC') {
