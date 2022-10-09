@@ -34,8 +34,9 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 - cd pruebaEvertec
 - composer install
 - cp .env.example .env
+- php artisan key:generate
 - configurar los datos de conexión a la base de datos en el archivo .env
-- Agregar al archivo .env las siguientes variables de entorno para la conexión a PlaceToPay:
+- agregar al archivo .env las siguientes variables de entorno para la conexión a PlaceToPay:
 - URL_CREATE_SESSION=https://checkout-co.placetopay.dev
 - WS_SECRET_KEY= MYSECRETKEY
 - WS_LOGIN = MYLOGIN
