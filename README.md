@@ -37,8 +37,8 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 - configurar los datos de conexión a la base de datos en el archivo .env
 - Agregar al archivo .env las siguientes variables de entorno para la conexión a PlaceToPay:
 - URL_CREATE_SESSION=https://checkout-co.placetopay.dev
-- WS_SECRET_KEY= "024h1IlD"
-- WS_LOGIN = "6dd490faf9cb87a9862245da41170ff2"
+- WS_SECRET_KEY= MYSECRETKEY
+- WS_LOGIN = MYLOGIN
 - php artisan migrate
 - php artisan serve
 
