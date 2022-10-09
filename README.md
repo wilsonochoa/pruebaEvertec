@@ -20,7 +20,11 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
+
+
 ##Manual de instalación
+
+
 <strong>Requerimientos</strong>:
 - PHP 8.+
 - Composer
