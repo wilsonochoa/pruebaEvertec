@@ -28,7 +28,7 @@ class EvertecTest extends TestCase
      */
     public function test_index()
     {
-        $response = $this->get('/index');
+        $response = $this->get('/');
         $response->assertStatus(200);
     }
 
